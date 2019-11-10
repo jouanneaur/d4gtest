@@ -1,8 +1,8 @@
 <?php  
+ session_start();
  //load_country.php  
- $connect = mysqli_connect("localhost", "root", "", "greenit");  
- $output = array();  
- $query = "SELECT * FROM informations ORDER BY nom ASC";  
+ $output = array();
+ $query = "SELECT * FROM questions";  
  $result = mysqli_query($connect, $query);  
  while($row = mysqli_fetch_array($result))  
  {  

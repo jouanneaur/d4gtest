@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
  <html>  
       <head>  
            <title>Webslesson Tutorial | Dynamic Dropdown list using AngularJS in PHP</title>  
@@ -6,14 +6,15 @@
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
       </head>  
       <body>  
+        <?php include(php/connection.php);?>
            <br /><br />  
            <div class="container" style="width:600px;">  
                 <h3 align="center">Dynamic Dropdown list using AngularJS in PHP</h3>  
                 <br />  
                 <div ng-app="myapp" ng-controller="usercontroller" ng-init="loadCountry()">  
-                     <select name="country" ng-model="country" class="form-control">  
+                     <select name="questions" ng-model="questions" class="form-control">  
                           <option value="">Select Country</option>  
-                          <option value="{{informations.id}}">{{informations.nom}}</option>  
+                          <option value="{{questions.id_Question}}">{{questions.Question}}</option>  
                      </select>  
                      <br />  
                 </div>  
