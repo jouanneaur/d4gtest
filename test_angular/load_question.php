@@ -3,7 +3,7 @@
  $output = array();  
 
 
- $query = "SELECT reponses.reponse_text FROM reponses WHERE reponses.question_id='1'";  
+ $query = "SELECT question_text FROM questions WHERE questions.question_id='1'";  
  $result = mysqli_query($connect, $query);  
  while($row = mysqli_fetch_array($result))  
  {  
