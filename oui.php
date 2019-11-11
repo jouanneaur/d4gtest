@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
  <html>  
       <head>  
@@ -24,4 +25,4 @@
     var app = angular.module("myapp",[]);  
     app.controller("usercontroller", function($scope, $http){$scope.loadCountry = function()
     {$http.get("load_country.php").success(function(data){$scope.questions = data;})}});  
- </script>  
+ </script>  -->

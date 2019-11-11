@@ -4,7 +4,7 @@
  $output = array();  
 
 
- $query = "SELECT * FROM reponses ORDER BY rep_name ASC";  
+ $query = "SELECT * FROM reponses WHERE rep_id='1'";  
  $result = mysqli_query($connect, $query);  
  while($row = mysqli_fetch_array($result))  
  {  
