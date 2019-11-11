@@ -1,7 +1,5 @@
-body {
-    color: mediumseagreen;
-    background-color: mediumseagreen;
-    font-style: normal;
+.jumbotron {
+    background-color: : mediumseagreen !important;
 }
 
 h1 {

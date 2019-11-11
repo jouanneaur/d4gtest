@@ -7,42 +7,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mini-Projet</title>
 </head>
 
 <body>
+    <div class="jumbotron bg-info jumbotron-fluid">
+        <div class="container text-white">
+            <h1>SONDAGE</h1>
+            <h6>Romain JOUANNEAU, Gwendal QUELLEC, Clément LE RENDU, Emmanuel POISSONIÈRE, Estéban MINGOT</h6>
+        </div>
+    </div>
     <div class="container bg-light shadow mt-4 mb-4 rounded">
         <div class="row">
             <div class="col-lg-12 ">
-                <div class="text-center">
-                    <h1>Sondage</h1>
-                    <h3>Text Explicatif:</h3>
-                </div>
-                <h6 class="text-left">
+                <h4>Introduction :</h4>
+                <h6>
                     With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance, the association AGIT (Alliance for Green IT) and the eco-organizations of the recycling network of Waste Electrical and Electronic Equipment (WEEE) organize a survey to assess the deposits of computer and office equipment present in companies and more generally on the maturity of companies in France in the use of eco-responsible digital services.
                     The duration of the questionnaire is estimated at 15 minutes if you are able to answer questions directly.
                     You can return at any time on the questionnaire, answer in several times, your previous answers are recorded. In case of modification, only the last answer will be taken into account.
                     You can submit this questionnaire to several people in your organization. All you have to do is simply share the link to the questionnaire.
                     Thank you for participating in this survey. Your answer is invaluable to us to constitute the most representative sample of the companies in France.
                 </h6>
-                <h3 class="ml-4">
+                <h4 class="mt-4">
                     Veuillez remplir le sondage qui suit:
-                </h3>
+                </h4>
             </div>
         </div>
         <!--Angular_formulaire-->
         <div class="row">
-            <div class="col-12">
-                <h3>Dynamic Dropdown list using AngularJS in PHP</h3>
-                <br />
+            <div class="col-12 mt-4">
                 <div ng-app="myapp" ng-controller="usercontroller" ng-init="loadRep()">
                     <h4>
                         <option ng-repeat="titre in titres" value="{{titre.question_id}}">{{titre.question_text}}</option>
                     </h4>
-
                     <select name="reponse" ng-model="reponse" class="form-control">
                         <option ng-repeat="reponse in reponses" value="{{reponse.reponse_id}}">{{reponse.reponse_text}}</option>
                     </select>
