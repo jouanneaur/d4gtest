@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,12 +32,41 @@
                     Veuillez remplir le sondage qui suit:
                 </h3>
             </div>
-            <div class="col-lg-12">
+        </div>
+        <!--Angular_formulaire-->
+        <div class="row">
+            <div class="col-12">
+                <h3>Dynamic Dropdown list using AngularJS in PHP</h3>
+                <br />
+                <div ng-app="myapp" ng-controller="usercontroller" ng-init="loadRep()">
+                    <h4>
+                        <option ng-repeat="titre in titres" value="{{titre.question_id}}">{{titre.question_text}}</option>
+                    </h4>
 
-                
+                    <select name="reponse" ng-model="reponse" class="form-control">
+                        <option ng-repeat="reponse in reponses" value="{{reponse.reponse_id}}">{{reponse.reponse_text}}</option>
+                    </select>
+                    <br />
+                </div>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("usercontroller", function($scope, $http) {
+        $scope.loadRep = function() {
+            $http.get("load_question.php")
+                .success(function(data) {
+                    $scope.titres = data;
+                })
+            $http.get("load_reponse.php")
+                .success(function(data) {
+                    $scope.reponses = data;
+                })
+        }
+    });
+
+</script>
