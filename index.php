@@ -1,4 +1,11 @@
 <?php include('php/server.php') ?>
+
+<?php if (isset($_GET['logout'])) {
+session_destroy();
+header("location: /d4gtest/index.php");
+}?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,6 +32,14 @@
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
                 <div ng-view></div>
+                <?php  if (isset($_SESSION['idn'])) : ?>
+                <?php  if (($_SESSION['levl'])=='1') : ?>
+                <a href="#/register">Créer un nouvel utilisateur</a>
+                <a href="#/upload">Créer un nouvel utilisateur</a>
+                <?php endif ?>
+                <p> <a href="index.php?logout='1'" style="color: red;">logout</a></p>
+                <?php endif ?>
+
             </div>
         </div>
     </div>
@@ -36,7 +51,11 @@
     angular.module('MonApp', ['ngRoute']).config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {
+                <?php  if (!isset($_SESSION['idn'])) : ?>
                 templateUrl: 'partials/connect.php'
+                <?php endif ?><?php  if (isset($_SESSION['idn'])) : ?>
+                templateUrl: 'partials/visualise.php'
+                <?php endif ?>
             })
             .when('/visualise', {
                 templateUrl: 'partials/visualise.html'

@@ -53,6 +53,7 @@
 				$_SESSION['levl'] = $row[0];
                 echo($_SESSION['idn']);
                 echo($_SESSION['levl']);
+                //header('Location: #/visualise');
 			}else {
 				echo("Wrong idn/pwd combination");
 			}
