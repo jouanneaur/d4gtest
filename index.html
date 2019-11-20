@@ -3,36 +3,27 @@
 
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+
+
     <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mini-Projet</title>
+    <title>D4G2018</title>
 </head>
 
-<body>
+<body ng-app="MonApp">
     <div class="jumbotron bg-info jumbotron-fluid">
         <div class="container text-white">
-            <h1>SONDAGE</h1>
+            <h1>Carnet du numérique du logement</h1>
             <h6>Romain JOUANNEAU, Gwendal QUELLEC, Clément LE RENDU, Emmanuel POISSONIÈRE, Estéban MINGOT</h6>
         </div>
     </div>
     <div class="container">
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
-                <h4>Introduction :</h4>
-                <h6 class="text-justify">
-                    With the support of ADEME, the Ministry of Ecology, Energy and the Sea and the Ministry of Economy and Finance, the association AGIT (Alliance for Green IT) and the eco-organizations of the recycling network of Waste Electrical and Electronic Equipment (WEEE) organize a survey to assess the deposits of computer and office equipment present in companies and more generally on the maturity of companies in France in the use of eco-responsible digital services.
-                    The duration of the questionnaire is estimated at 15 minutes if you are able to answer questions directly.
-                    You can return at any time on the questionnaire, answer in several times, your previous answers are recorded. In case of modification, only the last answer will be taken into account.
-                    You can submit this questionnaire to several people in your organization. All you have to do is simply share the link to the questionnaire.
-                    Thank you for participating in this survey. Your answer is invaluable to us to constitute the most representative sample of the companies in France.
-                </h6>
-            </div>
-        </div>     
-        <div class="row bg-light shadow mt-4 mb-4 rounded">
-            <div class="col-lg-12 ">
-                <h4 class="mt-4">Veuillez remplir le sondage qui suit :</h4>
+                <div ng-view></div>
             </div>
         </div>
     </div>
@@ -40,4 +31,21 @@
 
 </html>
 
-<script></script>
+<script>
+    angular.module('MonApp', ['ngRoute']).config(['$routeProvider', function($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'partials/register.html'
+            })
+            .when('/visualise', {
+                templateUrl: 'partials/visualise.html'
+            })
+            .when('/upload', {
+                templateUrl: 'partials/upload.html'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    }]);
+
+</script>
