@@ -13,9 +13,6 @@ header("location: /d4gtest/index.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
-
-
-    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>D4G2019</title>
@@ -35,7 +32,7 @@ header("location: /d4gtest/index.php");
                 <?php  if (isset($_SESSION['idn'])) : ?>
                 <?php  if (($_SESSION['levl'])=='1') : ?>
                 <a href="#/register">Créer un nouvel utilisateur</a>
-                <a href="#/upload">Créer un nouvel utilisateur</a>
+                <a href="#/upload">Ajouter des données</a>
                 <?php endif ?>
                 <p> <a href="index.php?logout='1'" style="color: red;">logout</a></p>
                 <?php endif ?>
