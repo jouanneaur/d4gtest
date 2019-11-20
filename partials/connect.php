@@ -13,3 +13,4 @@
         <button type="submit" class="btn btn-info" name="login_user">Login</button>
     </div>
 </form>
+<a href="#/forgetpwd">Mot de passe oublié ?</a>

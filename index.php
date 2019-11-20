@@ -44,8 +44,12 @@
             .when('/upload', {
                 templateUrl: 'partials/upload.html'
             })
+            .when('/forgetpwd', {
+                templateUrl: 'partials/forgetpwd.php'
+            })
             .otherwise({
                 redirectTo: '/'
             });
     }]);
+
 </script>
