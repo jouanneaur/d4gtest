@@ -12,9 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>D4G2019</title>
-                    label: "My Second dataset",
-                    pointColor: "rgba(151,187,205,1)",
-                    data: [0, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000, 15000]
 </head>
 
 <body ng-app="MonApp">
