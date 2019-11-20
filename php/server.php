@@ -43,13 +43,16 @@
 		$pwd = mysqli_real_escape_string($db, $_POST['pwd']);
 
 		//$pwd = md5($pwd);
-			$query = "SELECT * FROM access WHERE idn='$idn' AND pwd='$pwd'";
+			$query = "SELECT levl FROM access WHERE idn='$idn' AND pwd='$pwd'";
+        
 			$results = mysqli_query($db, $query);
+            $row = mysqli_fetch_array($results);
 
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['idn'] = $idn;
-				$_SESSION['success'] = "You are now logged in";
+				$_SESSION['levl'] = $row[0];
                 echo($_SESSION['idn']);
+                echo($_SESSION['levl']);
 			}else {
 				echo("Wrong idn/pwd combination");
 			}

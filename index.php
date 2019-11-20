@@ -41,11 +41,14 @@
             .when('/visualise', {
                 templateUrl: 'partials/visualise.html'
             })
-            .when('/upload', {
-                templateUrl: 'partials/upload.html'
-            })
             .when('/forgetpwd', {
                 templateUrl: 'partials/forgetpwd.php'
+            })
+            .when('/register', {
+                templateUrl: 'partials/register.php'
+            })
+            .when('/upload', {
+                templateUrl: 'partials/upload.php'
             })
             .otherwise({
                 redirectTo: '/'
