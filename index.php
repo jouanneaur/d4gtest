@@ -17,6 +17,7 @@ header("location: /d4gtest/index.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>D4G2019</title>
@@ -41,9 +42,32 @@ header("location: /d4gtest/index.php");
                     data: test19,
                 }, ]
             };
-            var ctx = document.getElementById("lineChart").getContext("2d");
-            var options = {};
-            var lineChart = new Chart(ctx).Line(data, options);
+
+            //original canvas
+            var canvas = document.querySelector('#cool-canvas');
+            var context = canvas.getContext('2d');
+            new Chart(context).Line(data);
+            //hidden canvas
+            var newCanvas = document.querySelector('#supercool-canvas');
+            newContext = newCanvas.getContext('2d');
+            var supercoolcanvas = new Chart(newContext).Line(data);
+            supercoolcanvas.defaults.global = {
+                scaleFontSize: 600
+            }
+
+            //add event listener to button
+            document.getElementById('download-pdf').addEventListener("click", downloadPDF);
+            //donwload pdf from original canvas
+            function downloadPDF() {
+                var canvas = document.querySelector('#cool-canvas');
+                var canvasImg = canvas.toDataURL("image/jpeg", 1.0);
+                var doc = new jsPDF('landscape');
+                doc.setFontSize(20);
+                doc.text(15, 15, "Cool Chart");
+                doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
+                doc.save('canvas.pdf');
+            }
+
         }
 
     </script>
