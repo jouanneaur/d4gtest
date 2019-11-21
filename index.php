@@ -13,10 +13,11 @@ header("location: /d4gtest/index.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <title>D4G2019</title>
+   
 </head>
 
 <body ng-app="MonApp">
@@ -55,7 +56,7 @@ header("location: /d4gtest/index.php");
                 <?php endif ?>
             })
             .when('/visualise', {
-                templateUrl: 'partials/visualise.html'
+                templateUrl: 'partials/visualise.php'
             })
             .when('/forgetpwd', {
                 templateUrl: 'partials/forgetpwd.php'
@@ -70,5 +71,4 @@ header("location: /d4gtest/index.php");
                 redirectTo: '/'
             });
     }]);
-
 </script>

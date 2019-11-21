@@ -1,6 +1,6 @@
-<script>
+ <script>
     function displayLineChart() {
-        var test19 = [<?php include('server.php') ?>];
+        var test19 = [<?php include('graph.php') ?>];
         var date = [];
         var k = test19.length;
         for (var i = 0; i <= k; i++) {
@@ -23,8 +23,7 @@
         var options = {};
         var lineChart = new Chart(ctx).Line(data, options);
     }
-
 </script>
-
-<button onclick="displayLineChart()" name="graph" >Click to print the chart</button>
+<button onclick="displayLineChart()">Click to print the chart</button>
 <canvas id="lineChart" height="440" width="1000"></canvas>
+
