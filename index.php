@@ -45,15 +45,23 @@ header("location: /d4gtest/index.php");
             var options = {};
             var lineChart = new Chart(ctx).Line(data, options);
         }
-//        $("#tableau1").onclick(function() {
-//        $("#logement").load("/php/tableaux.php",{});
-        function tableau1() {
-            var tabl = [<?php include('php/tableaux.php') ?>];
-            
-        }
-    });
 
     </script>
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "php/tableaux.php", true);
+            xhttp.send();
+        }
+
+    </script>
+
 </head>
 
 <body ng-app="MonApp">
@@ -98,8 +106,8 @@ header("location: /d4gtest/index.php");
                 echo($_SESSION['idn']);
                 echo($_SESSION['levl']);
                 echo($_SESSION['id_u']); }?>
-                
-                
+
+
             </div>
         </div>
     </div>
@@ -132,4 +140,5 @@ header("location: /d4gtest/index.php");
                 redirectTo: '/'
             });
     }]);
+
 </script>
