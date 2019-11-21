@@ -15,6 +15,7 @@ header("location: /d4gtest/index.php");
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <title>D4G2019</title>
 </head>
 
@@ -36,7 +37,6 @@ header("location: /d4gtest/index.php");
                 <?php endif ?>
                 <p> <a href="index.php?logout='1'" style="color: red;">logout</a></p>
                 <?php endif ?>
-
             </div>
         </div>
     </div>
