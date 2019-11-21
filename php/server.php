@@ -50,9 +50,6 @@
 				$_SESSION['idn'] = $idn;
 				$_SESSION['levl'] = $row[0];
                 $_SESSION['id_u'] = $row2[0];
-                echo($_SESSION['idn']);
-                echo($_SESSION['levl']);
-                echo($_SESSION['id_u']);
 			}else {
 				echo("Wrong idn/pwd combination");
 			}

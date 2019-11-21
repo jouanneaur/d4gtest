@@ -47,6 +47,33 @@ header("location: /d4gtest/index.php");
 </head>
 
 <body ng-app="MonApp">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="#">
+    <img src="images/logov2-min.PNG" alt="logo" style="width:40px;">
+  </a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#/visualise">TEST</a>
+    </li>
+    <?php  if (isset($_SESSION['idn'])) : ?>
+    <?php  if (($_SESSION['levl'])=='1') : ?>
+    <li class="nav-item">
+        <a class="nav-link" href="#/register">NEWU</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#/upload">DATA</a>
+    </li>
+    <li class="nav-item">
+    <?php endif ?>
+        <a class="nav-link" href="index.php?logout='1'" style="color: red;">LOGOUT</a></p>
+    <?php endif ?>
+    </li>
+  </ul>
+</nav>
+
     <div class="jumbotron bg-info jumbotron-fluid">
         <div class="container text-white">
             <h1>Carnet du numérique du logement</h1>
@@ -57,14 +84,11 @@ header("location: /d4gtest/index.php");
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
                 <div ng-view></div>
-                <a href="#/visualise">TEST Clément gwendal (une fois co)</a>
-                <?php  if (isset($_SESSION['idn'])) : ?>
-                <?php  if (($_SESSION['levl'])=='1') : ?>
-                <a href="#/register">Créer un nouvel utilisateur</a>
-                <a href="#/upload">Ajouter des données</a>
-                <?php endif ?>
-                <p> <a href="index.php?logout='1'" style="color: red;">logout</a></p>
-                <?php endif ?>
+
+                <?php if (isset($_SESSION['idn'])) {
+                echo($_SESSION['idn']);
+                echo($_SESSION['levl']);
+                echo($_SESSION['id_u']); }?>
             </div>
         </div>
     </div>
