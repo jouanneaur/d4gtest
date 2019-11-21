@@ -1,13 +1,5 @@
 <?php 
-	session_start();
 
-	// connect to database
-	$db = mysqli_connect('localhost', 'root', '', 'green');
-
-// Check connection
-    if ($db->connect_error) {
-        die("Connection failed: " . $db->connect_error);
-}
 	// REGISTER USER
 	if (isset($_POST['reg_user'])) {
 		// receive all input values from the form
@@ -46,7 +38,7 @@
             $row = mysqli_fetch_array($results);
             $row2 = mysqli_fetch_array($results2);
 
-			if (mysqli_num_rows($results) == 1) {
+			if (mysqli_num_rows($results)==1) {
 				$_SESSION['idn'] = $idn;
 				$_SESSION['levl'] = $row[0];
                 $_SESSION['id_u'] = $row2[0];

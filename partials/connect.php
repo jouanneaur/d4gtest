@@ -1,6 +1,5 @@
 <h2>SIGN IN</h2>
 <form method="post" action="index.php">
-   
     <div class="form-group">
         <label>Username</label>
         <input type="text" class="form-control" name="idn" >

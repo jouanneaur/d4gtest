@@ -1,6 +1,5 @@
 <h2>REGISTER</h2>
 <form method="post" action="index.php">
-
     <div class="form-group">
         <label>Identifiant</label>
         <input type="text" name="idn" class="form-control" placeholder="Identifiant">

@@ -1,3 +1,4 @@
+<?php include('php/connection.php') ?>
 <?php include('php/server.php') ?>
 
 <?php if (isset($_GET['logout'])) {
@@ -13,6 +14,8 @@ header("location: /d4gtest/index.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,37 +45,44 @@ header("location: /d4gtest/index.php");
             var options = {};
             var lineChart = new Chart(ctx).Line(data, options);
         }
+//        $("#tableau1").onclick(function() {
+//        $("#logement").load("/php/tableaux.php",{});
+        function tableau1() {
+            var tabl = [<?php include('php/tableaux.php') ?>];
+            
+        }
+    });
 
     </script>
 </head>
 
 <body ng-app="MonApp">
     <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
-  <!-- Brand/logo -->
-  <a class="navbar-brand" href="#">
-    <img src="images/logov2-min.PNG" alt="logo" style="width:40px;">
-  </a>
-  
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#/visualise">TEST</a>
-    </li>
-    <?php  if (isset($_SESSION['idn'])) : ?>
-    <?php  if (($_SESSION['levl'])=='1') : ?>
-    <li class="nav-item">
-        <a class="nav-link" href="#/register">NEWU</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#/upload">DATA</a>
-    </li>
-    <li class="nav-item">
-    <?php endif ?>
-        <a class="nav-link" href="index.php?logout='1'" style="color: red;">LOGOUT</a></p>
-    <?php endif ?>
-    </li>
-  </ul>
-</nav>
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="#">
+            <img src="images/logov2-min.PNG" alt="logo" style="width:40px;">
+        </a>
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#/visualise">TEST</a>
+            </li>
+            <?php  if (isset($_SESSION['idn'])) : ?>
+            <?php  if (($_SESSION['levl'])=='1') : ?>
+            <li class="nav-item">
+                <a class="nav-link" href="#/register">NEWU</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#/upload">DATA</a>
+            </li>
+            <li class="nav-item">
+                <?php endif ?>
+                <a class="nav-link" href="index.php?logout='1'" style="color: red;">LOGOUT</a>
+                <?php endif ?>
+            </li>
+        </ul>
+    </nav>
 
     <div class="jumbotron bg-info jumbotron-fluid">
         <div class="container text-white">
@@ -84,18 +94,18 @@ header("location: /d4gtest/index.php");
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
                 <div ng-view></div>
-
                 <?php if (isset($_SESSION['idn'])) {
                 echo($_SESSION['idn']);
                 echo($_SESSION['levl']);
                 echo($_SESSION['id_u']); }?>
+                
+                
             </div>
         </div>
     </div>
 </body>
 
 </html>
-
 <script>
     angular.module('MonApp', ['ngRoute']).config(['$routeProvider', function($routeProvider) {
         $routeProvider
@@ -122,5 +132,4 @@ header("location: /d4gtest/index.php");
                 redirectTo: '/'
             });
     }]);
-
 </script>
