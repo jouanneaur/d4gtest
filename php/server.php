@@ -38,15 +38,21 @@
 
 		//$pwd = md5($pwd);
 			$query = "SELECT levl FROM access WHERE idn='$idn' AND pwd='$pwd'";
+            $query2 = "SELECT id_u FROM access WHERE idn='$idn' AND pwd='$pwd'";
         
 			$results = mysqli_query($db, $query);
+            $results2 = mysqli_query($db, $query2);
+           
             $row = mysqli_fetch_array($results);
+            $row2 = mysqli_fetch_array($results2);
 
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['idn'] = $idn;
 				$_SESSION['levl'] = $row[0];
+                $_SESSION['id_u'] = $row2[0];
                 echo($_SESSION['idn']);
                 echo($_SESSION['levl']);
+                echo($_SESSION['id_u']);
 			}else {
 				echo("Wrong idn/pwd combination");
 			}

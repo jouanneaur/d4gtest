@@ -17,7 +17,33 @@ header("location: /d4gtest/index.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>D4G2019</title>
-   
+    <script>
+        function displayLineChart() {
+            var test19 = [<?php include('partials/graph.php') ?>];
+            var date = [];
+            var k = test19.length;
+            for (var i = 0; i <= k; i++) {
+                date.push(i);
+            }
+            var data = {
+                labels: date,
+                datasets: [{
+                    label: "Famille A",
+                    fillColor: "lighblue",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: test19,
+                }, ]
+            };
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            var options = {};
+            var lineChart = new Chart(ctx).Line(data, options);
+        }
+
+    </script>
 </head>
 
 <body ng-app="MonApp">
@@ -31,6 +57,7 @@ header("location: /d4gtest/index.php");
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
                 <div ng-view></div>
+                <a href="#/visualise">TEST Clément gwendal (une fois co)</a>
                 <?php  if (isset($_SESSION['idn'])) : ?>
                 <?php  if (($_SESSION['levl'])=='1') : ?>
                 <a href="#/register">Créer un nouvel utilisateur</a>
@@ -71,4 +98,5 @@ header("location: /d4gtest/index.php");
                 redirectTo: '/'
             });
     }]);
+
 </script>
