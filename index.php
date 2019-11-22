@@ -55,6 +55,7 @@ header("location: /d4gtest/index.php");
                 scaleFontSize: 600
             }
 
+
             //add event listener to button
             document.getElementById('download-pdf').addEventListener("click", downloadPDF);
             //donwload pdf from original canvas
@@ -65,10 +66,12 @@ header("location: /d4gtest/index.php");
                 doc.setFontSize(20);
                 doc.text(15, 15, "Cool Chart");
                 doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
-                doc.save('carnet_du_numérique_du_logement.pdf');
+                doc.save('carnet_du_numerique_du_logement.pdf');
             }
 
         }
+
+
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -80,6 +83,7 @@ header("location: /d4gtest/index.php");
             xhttp.open("GET", "php/tableaux.php", true);
             xhttp.send();
         }
+
         function loadDoc2() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -100,8 +104,8 @@ header("location: /d4gtest/index.php");
 <body ng-app="MonApp">
     <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
         <!-- Brand/logo -->
-        <a class="navbar-brand">
-            <img src="images/logov2-min.PNG" alt="logo" style="width:60px;">
+        <a class="navbar-brand" href="#">
+            <img src="images/logov2-min.PNG" alt="logo" style="width:40px;">
         </a>
 
         <!-- Links -->
@@ -132,12 +136,6 @@ header("location: /d4gtest/index.php");
         <div class="row bg-light shadow mt-4 mb-4 rounded">
             <div class="col-lg-12 ">
                 <div ng-view></div>
-                <?php if (isset($_SESSION['idn'])) {
-                echo($_SESSION['idn']);
-                echo($_SESSION['levl']);
-                echo($_SESSION['id_u']); }?>
-
-
             </div>
         </div>
     </div>
@@ -150,13 +148,13 @@ header("location: /d4gtest/index.php");
             .when('/', {
                 <?php  if (!isset($_SESSION['idn'])) : ?>
                 templateUrl: 'partials/connect.php'
-                <?php endif ?><?php  if (isset($_SESSION['idn'])) : ?>
+                <?php endif ?><?php  if ((isset($_SESSION['idn']))&&(($_SESSION['levl'])=='1')) : ?>
+                templateUrl: 'partials/visualisea.php'
+                <?php endif ?><?php  if ((isset($_SESSION['idn']))&&(($_SESSION['levl'])=='0')) : ?>
                 templateUrl: 'partials/visualise.php'
                 <?php endif ?>
             })
-            .when('/visualise', {
-                templateUrl: 'partials/visualise.php'
-            })
+
             .when('/forgetpwd', {
                 templateUrl: 'partials/forgetpwd.php'
             })

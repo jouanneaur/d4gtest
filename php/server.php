@@ -19,10 +19,18 @@
 			mysqli_query($db, $query);
 
 		}
-
 	}
-
-           
+    //SUPER VISUALISE
+    if (isset($_POST['idu_user'])) {
+            $idu = mysqli_real_escape_string($db, $_POST['idu']);
+            $query = "SELECT id_u FROM access WHERE id_u='$idu'";
+            $results = mysqli_query($db, $query);
+            $row2 = mysqli_fetch_array($results);
+            $_SESSION['levl'] = '1';
+            $_SESSION['id_u'] = $row2[0];
+            
+    }
+        
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
 		$idn = mysqli_real_escape_string($db, $_POST['idn']);
