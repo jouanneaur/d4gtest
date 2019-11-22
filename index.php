@@ -69,22 +69,31 @@ header("location: /d4gtest/index.php");
             }
 
         }
-
-    </script>
-    <script>
         function loadDoc() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("demo").innerHTML =
+                    document.getElementById("tabl").innerHTML =
                         this.responseText;
                 }
             };
             xhttp.open("GET", "php/tableaux.php", true);
             xhttp.send();
         }
+        function loadDoc2() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("tabl2").innerHTML =
+                        this.responseText;
+                }
+            };
+            xhttp.open("GET", "php/tableaux2.php", true);
+            xhttp.send();
+        }
 
     </script>
+
 
 </head>
 
