@@ -65,7 +65,7 @@ header("location: /d4gtest/index.php");
                 doc.setFontSize(20);
                 doc.text(15, 15, "Cool Chart");
                 doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
-                doc.save('canvas.pdf');
+                doc.save('carnet_du_numérique_du_logement.pdf');
             }
 
         }
@@ -100,15 +100,12 @@ header("location: /d4gtest/index.php");
 <body ng-app="MonApp">
     <nav class="navbar navbar-expand-sm bg-light navbar-light sticky-top">
         <!-- Brand/logo -->
-        <a class="navbar-brand" href="#">
-            <img src="images/logov2-min.PNG" alt="logo" style="width:40px;">
+        <a class="navbar-brand">
+            <img src="images/logov2-min.PNG" alt="logo" style="width:60px;">
         </a>
 
         <!-- Links -->
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#/visualise">TEST</a>
-            </li>
             <?php  if (isset($_SESSION['idn'])) : ?>
             <?php  if (($_SESSION['levl'])=='1') : ?>
             <li class="nav-item">
