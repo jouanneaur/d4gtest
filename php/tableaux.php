@@ -4,8 +4,9 @@
                  $sql = "SELECT logem.type, logem.surface, logem.pieces, logem.chauffage, logem.annee_c, logem.n_voie, logem.voie, logem.c_postal, logem.ville FROM access INNER JOIN logem ON logem.id_u = access.id_u WHERE logem.id_u ='".$_SESSION['id_u']."' ";
                     $result = mysqli_query($db,$sql);
                     if (mysqli_num_rows($result)>0) {
-                        echo '<table class="border>';
-                        echo '<tr class="border>';
+                        echo '<div class="container">';
+                        echo '<table class="table">';
+                        echo '<tr class="border">';
                         echo '<th>'.'type'.'</th>';
                         echo '<th>'.'surface'.'</th>';
                         echo '<th>'.'pieces'.'</th>';
@@ -30,6 +31,7 @@
                         echo '<td>'.$row['ville'].'</td>';
                         echo '<tr>';
                         }
+                        echo '</div>';
                     }
                 
 ?>

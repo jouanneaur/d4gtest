@@ -3,7 +3,7 @@
 
 <?php if (isset($_GET['logout'])) {
 session_destroy();
-header("location: /d4gtest/index.php");
+header("location: /D4G/d4gtest/index.php");
 }?>
 
 
